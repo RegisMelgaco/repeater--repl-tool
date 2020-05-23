@@ -3,6 +3,10 @@
 	"displayName": "Repeater (REPL Tool)",
 	"description": "Develop using repl fast and with ease.",
 	"version": "0.0.1",
+	"publisher": "RegisMelgaco",
+	"repository": {
+		"url": "https://github.com/RegisMelgaco/repeater--repl-tool"
+	},
 	"engines": {
 		"vscode": "^1.45.0"
 	},
