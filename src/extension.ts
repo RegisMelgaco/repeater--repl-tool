@@ -1,12 +1,19 @@
-import { window, commands, ExtensionContext } from 'vscode';
+import { window, commands, ExtensionContext, workspace } from 'vscode';
 
 const TERMINAL_NAME = 'repeater--repl-tool';
 
 
+function getLaunchReplCommand() {
+	const configs = workspace.getConfiguration();
+	return configs['repeater--repl-tool']['launchReplCommand'];
+}
+
 function startInterpreter() {
 	const terminal = window.createTerminal(TERMINAL_NAME);
 	terminal.show(true);
-	terminal.sendText('iex');
+	terminal.sendText(
+		getLaunchReplCommand()
+	);
 
 	return terminal;
 }
@@ -33,4 +40,4 @@ export function activate(context: ExtensionContext) {
 	context.subscriptions.push(runCode);
 }
 
-export function deactivate() {}
+export function deactivate() { }

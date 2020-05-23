@@ -10,10 +10,21 @@
 		"Other"
 	],
 	"activationEvents": [
+				"onFileSystem:repeater--repl-tool",
         "onCommand:repeater--repl-tool.runCode"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"configuration": {
+			"title": "Repeater (REPL Tool)",
+			"properties": {
+				"repeater--repl-tool.launchReplCommand": {
+					"type": "string",
+					"default": "SET SOME REPL COMMAND!",
+					"description": "The desired command for launching the REPL"
+				}
+			}
+		},
 		"commands": [
 			{
 				"command": "repeater--repl-tool.runCode",
