@@ -1,9 +1,10 @@
 import { window, commands, ExtensionContext } from 'vscode';
 
-const terminalName = 'repeater--repl-tool';
+const TERMINAL_NAME = 'repeater--repl-tool';
+
 
 function startInterpreter() {
-	const terminal = window.createTerminal(terminalName);
+	const terminal = window.createTerminal(TERMINAL_NAME);
 	terminal.show(true);
 	terminal.sendText('iex');
 
@@ -13,7 +14,7 @@ function startInterpreter() {
 function registerRunCode(){
 	return commands.registerCommand('repeater--repl-tool.runCode', () => {
 		const terminals = window.terminals;
-		const terminal = terminals.filter(t => t.name === terminalName)[0] ?? startInterpreter();
+		const terminal = terminals.filter(t => t.name === TERMINAL_NAME)[0] ?? startInterpreter();
 
 		const editor = window.activeTextEditor;
 
@@ -29,7 +30,6 @@ function registerRunCode(){
 
 export function activate(context: ExtensionContext) {
 	const runCode = registerRunCode();
-
 	context.subscriptions.push(runCode);
 }
 
