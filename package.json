@@ -15,6 +15,13 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"keybindings": [
+			{
+				"command": "repeater--repl-tool.runCode",
+				"mac": "Cmd+i",
+				"key": "Ctrl+Alt+i"
+			}
+		],
 		"configuration": {
 			"title": "Repeater (REPL Tool)",
 			"properties": {
