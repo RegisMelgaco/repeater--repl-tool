@@ -27,7 +27,7 @@
 			"properties": {
 				"repeater--repl-tool.launchReplCommand": {
 					"type": "string",
-					"default": "SET SOME REPL COMMAND!",
+					"default": "SET SOME REPL COMMAND! Search the option 'The desired command for launching the REPL' in the settings.",
 					"description": "The desired command for launching the REPL"
 				}
 			}
