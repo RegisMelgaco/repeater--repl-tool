@@ -1,4 +1,4 @@
-# Repeater (REPL tool) [WIP]
+# Repeater (REPL tool)
 
 The object is developing using REPL more fast and with ease. How this extension tries to achieve this is accepting a terminal command for opening whatever REPL you use with the options that you want, then you run the desired code from your file with a shortcut.
 
