@@ -1,4 +1,4 @@
-import { window, commands, ExtensionContext, workspace } from 'vscode';
+import { window, commands, ExtensionContext, workspace, Terminal } from 'vscode';
 
 const TERMINAL_NAME = 'repeater--repl-tool';
 
@@ -8,7 +8,7 @@ function getLaunchReplCommand() {
 	return configs['repeater--repl-tool']['launchReplCommand'];
 }
 
-function startInterpreter() {
+function startRepl() {
 	const terminal = window.createTerminal(TERMINAL_NAME);
 	terminal.show(true);
 	terminal.sendText(
@@ -18,26 +18,56 @@ function startInterpreter() {
 	return terminal;
 }
 
+function getOrStartRepl() {
+	const terminals = window.terminals;
+	return terminals.filter(t => t.name === TERMINAL_NAME)[0] ?? startRepl();
+}
+
+function restartRepl() {
+	const terminals = window.terminals;
+	const oldTerminal = terminals.filter(t => t.name === TERMINAL_NAME);
+
+	if (oldTerminal.length > 0) {
+		oldTerminal[0].dispose();
+	}
+
+	return startRepl();
+}
+
+function sendToReplSelectedCode(terminal: Terminal) {
+	const editor = window.activeTextEditor;
+
+	if (editor !== undefined) {
+		if (!editor.selection.isEmpty) {
+			const code = window.activeTextEditor?.document.getText(window.activeTextEditor?.selection);
+
+			terminal.sendText(code || '');
+		}
+	}
+}
+
 function registerRunCode(){
 	return commands.registerCommand('repeater--repl-tool.runCode', () => {
-		const terminals = window.terminals;
-		const terminal = terminals.filter(t => t.name === TERMINAL_NAME)[0] ?? startInterpreter();
+		const terminal = getOrStartRepl();
 
-		const editor = window.activeTextEditor;
+		sendToReplSelectedCode(terminal);
+	});
+}
 
-		if (editor !== undefined) {
-			if (!editor.selection.isEmpty) {
-				const code = window.activeTextEditor?.document.getText(window.activeTextEditor?.selection);
+function registerClearAndRunCode() {
+	return commands.registerCommand('repeater--repl-tool.clearAndRunCode', () => {
+		const terminal = restartRepl();
 
-				terminal.sendText(code || '');
-			}
-		}
+		sendToReplSelectedCode(terminal);
 	});
 }
 
 export function activate(context: ExtensionContext) {
 	const runCode = registerRunCode();
 	context.subscriptions.push(runCode);
+
+	const clearAndRunCode = registerClearAndRunCode();
+	context.subscriptions.push(clearAndRunCode);
 }
 
 export function deactivate() { }
