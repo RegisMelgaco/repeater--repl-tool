@@ -23,12 +23,12 @@
 			{
 				"command": "repeater--repl-tool.runCode",
 				"mac": "Cmd+i",
-				"key": "Ctrl+Alt+i"
+				"key": "Ctrl+i"
 			},
 			{
 				"command": "repeater--repl-tool.clearAndRunCode",
 				"mac": "Shift+Cmd+i",
-				"key": "Shift+Ctrl+Alt+i"
+				"key": "Shift+Ctrl+i"
 			}
 		],
 		"configuration": {
