@@ -2,7 +2,7 @@
 	"name": "repeater--repl-tool",
 	"displayName": "Repeater (REPL Tool)",
 	"description": "Develop using repl fast and with ease.",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"publisher": "RegisMelgaco",
 	"repository": {
 		"url": "https://github.com/RegisMelgaco/repeater--repl-tool"
