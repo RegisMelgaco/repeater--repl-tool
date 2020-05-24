@@ -12,8 +12,9 @@ Set the terminal command for opening the desired REPL in the VSCode settings.
 Select some code and run by calling vscode command
 __Repeater (REPL Tool): Run selected code__. If you need to restart the REPL, call the function __Repeater (REPL Tool): Restart REPL then run selected code__.
 
-#### Shortcuts
+## Shortcuts
 __Repeater (REPL Tool): Run selected code__ -> Ctrl+i or Cmd+i
+
 __Repeater (REPL Tool): Restart REPL then run selected code__ -> Shift+Ctrl+i or Shift+Cmd+i
 
 ## Requirements
