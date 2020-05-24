@@ -2,7 +2,7 @@
 	"name": "repeater--repl-tool",
 	"displayName": "Repeater (REPL Tool)",
 	"description": "Develop using repl fast and with ease.",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"publisher": "RegisMelgaco",
 	"repository": {
 		"url": "https://github.com/RegisMelgaco/repeater--repl-tool"
@@ -14,8 +14,8 @@
 		"Other"
 	],
 	"activationEvents": [
-				"onCommand:repeater--repl-tool.runCode",
-				"onCommand:repeater--repl-tool.clearAndRunCode"
+		"onCommand:repeater--repl-tool.runCode",
+		"onCommand:repeater--repl-tool.clearAndRunCode"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -24,7 +24,8 @@
 				"command": "repeater--repl-tool.runCode",
 				"mac": "Cmd+i",
 				"key": "Ctrl+Alt+i"
-			},{
+			},
+			{
 				"command": "repeater--repl-tool.clearAndRunCode",
 				"mac": "Shift+Cmd+i",
 				"key": "Shift+Ctrl+Alt+i"
@@ -44,7 +45,8 @@
 			{
 				"command": "repeater--repl-tool.runCode",
 				"title": "Repeater (REPL Tool): Run selected code"
-			},{
+			},
+			{
 				"command": "repeater--repl-tool.clearAndRunCode",
 				"title": "Repeater (REPL Tool): Restart REPL then run selected code"
 			}
